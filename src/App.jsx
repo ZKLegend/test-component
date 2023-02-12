@@ -13,6 +13,8 @@ import {
   Dropdown,
   Divider,
   Space,
+  Rate,
+  Image,
 } from "antd";
 
 import "./style.css";
@@ -61,6 +63,7 @@ const TestComponent = () => {
       <Row>
         <Col span={13}>
           <Row gutter={[0, 32]}>
+            {/* Category Menu */}
             <Col
               span={24}
               style={{
@@ -105,6 +108,7 @@ const TestComponent = () => {
               />
             </Col>
 
+            {/* Sort Bar */}
             <Col
               style={{
                 border: "1px solid black",
@@ -130,6 +134,7 @@ const TestComponent = () => {
               style={{ border: "1px solid black", display: "flex" }}
               span={24}
             >
+              {/* Image */}
               <img
                 style={{ maxHeight: "300px" }}
                 alt="error"
@@ -146,32 +151,34 @@ const TestComponent = () => {
                   gap: "10px",
                 }}
               >
-                <Col
-                  style={{ backgroundColor: "red", maxWidth: "100%" }}
-                  span={12}
-                >
-                  <Row gutter={24} justify="space-between">
+                <Col style={{ maxWidth: "100%" }} span={12}>
+                  <Row>
                     {/* Description Info */}
                     <Col span={18}>
                       {/* Line 1 */}
-                      <Title level={3} style={{ margin: "0" }}>
+                      <Title
+                        level={3}
+                        style={{ margin: "0", border: "1px solid black" }}
+                      >
                         CVK Park Bosphorus Hotel Istanbul
                       </Title>
 
                       {/* Line 2 */}
-                      <Text>
+                      <Text style={{ border: "1px solid black" }}>
                         <EnvironmentFilled />
                         &nbsp; Gümüssuyu Mah. Inönü Cad. No:8, Istanbul 34437
                       </Text>
 
                       {/* Line 3 */}
-                      <Row gutter={32}>
-                        <Col>Star Rating</Col>
-                        <Col>Aminities</Col>
+                      <Row style={{ border: "1px solid black" }}>
+                        <Col style={{}}>
+                          <Rate disabled defaultValue={5} />
+                          <Text>20+ Aminities</Text>
+                        </Col>
                       </Row>
 
                       {/* Line 4 */}
-                      <Row>
+                      <Row style={{ border: "1px solid black" }}>
                         <Col
                           style={{
                             display: "flex",
@@ -289,6 +296,75 @@ const TestComponent = () => {
                   >
                     View Place
                   </Button>
+                </Col>
+              </Row>
+            </Col>
+
+            {/* Test lại Component        */}
+            <Col
+              span={24}
+              style={{ border: "1px solid black", display: "flex" }}
+            >
+              <Image
+                preview={false}
+                style={{ width: "300px", border: "1px solid black" }}
+              >
+                Image
+              </Image>
+              <Row
+                style={{
+                  border: "1px solid green",
+                  padding: "24px",
+                  width: "100%",
+                }}
+                gutter={[0, 24]}
+              >
+                {/* Description Info */}
+                <Col span={24} style={{ border: "1px solid black" }}>
+                  <Row gutter={24}>
+                    <Col span={18}>
+                      <div style={{ border: "1px solid black" }}>
+                        Left Content
+                      </div>
+                    </Col>
+                    <Col span={6}>
+                      <div style={{ border: "1px solid black" }}>
+                        <Text className="pricebox-text">starting from</Text>
+                        <br />
+
+                        <span className="pricebox-highlight-title">$240</span>
+                        <span className="pricebox-highlight-text">/night</span>
+
+                        <Text
+                          className="pricebox-text"
+                          style={{ textAlign: "right", display: "block" }}
+                        >
+                          excl.tax
+                        </Text>
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+                <Divider style={{ margin: "0" }} />
+
+                {/* Button */}
+                <Col
+                  span={24}
+                  style={{ border: "1px solid black", display: "flex" }}
+                >
+                  <Button
+                    style={{
+                      width: "48px",
+                      marginRight: "16px",
+                      height: "48px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <HeartFilled style={{ fontSize: "20px" }} />
+                  </Button>
+                  <Button style={{ width: "100%" }}>Button</Button>
                 </Col>
               </Row>
             </Col>
