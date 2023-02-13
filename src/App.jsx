@@ -17,13 +17,17 @@ import {
   Image,
 } from "antd";
 
-import "./style.css";
+// import "./fonts/Montserrat/Montserrat-Bold.ttf";
+// import "./fonts/Montserrat/Montserrat-Medium.ttf";
+// import "./fonts/Montserrat/Montserrat-Regular.ttf";
+// import "./fonts/Montserrat/Montserrat-SemiBold.ttf";
+
+import "./app.css";
 import {
   HeartOutlined,
   HeartFilled,
   EnvironmentFilled,
 } from "@ant-design/icons";
-import CollapsePanel from "antd/es/collapse/CollapsePanel";
 
 import hotelIstanbul1 from "../assets/hotel-istanbul-1.png";
 
@@ -58,6 +62,12 @@ const LabelItems = ({ name, placeAmounts }) => {
 };
 
 const TestComponent = () => {
+  const [likedItem, setLikedItem] = useState(false);
+
+  const handleLikeItems = () => {
+    setLikedItem(!likedItem);
+    console.log(likedItem);
+  };
   return (
     <div>
       <Row>
@@ -111,7 +121,6 @@ const TestComponent = () => {
             {/* Sort Bar */}
             <Col
               style={{
-                border: "1px solid black",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -129,212 +138,102 @@ const TestComponent = () => {
               </div>
             </Col>
 
-            {/* Search Result */}
-            <Col
-              style={{ border: "1px solid black", display: "flex" }}
-              span={24}
-            >
-              {/* Image */}
-              <img
-                style={{ maxHeight: "300px" }}
-                alt="error"
-                src={hotelIstanbul1}
-              />
-
-              {/* Description Section */}
-              <Row
-                justify="space-between"
-                style={{
-                  width: "100%",
-                  padding: "24px",
-                  flexDirection: "column",
-                  gap: "10px",
-                }}
-              >
-                <Col style={{ maxWidth: "100%" }} span={12}>
-                  <Row>
-                    {/* Description Info */}
-                    <Col span={18}>
-                      {/* Line 1 */}
-                      <Title
-                        level={3}
-                        style={{ margin: "0", border: "1px solid black" }}
-                      >
-                        CVK Park Bosphorus Hotel Istanbul
-                      </Title>
-
-                      {/* Line 2 */}
-                      <Text style={{ border: "1px solid black" }}>
-                        <EnvironmentFilled />
-                        &nbsp; Gümüssuyu Mah. Inönü Cad. No:8, Istanbul 34437
-                      </Text>
-
-                      {/* Line 3 */}
-                      <Row style={{ border: "1px solid black" }}>
-                        <Col style={{}}>
-                          <Rate disabled defaultValue={5} />
-                          <Text>20+ Aminities</Text>
-                        </Col>
-                      </Row>
-
-                      {/* Line 4 */}
-                      <Row style={{ border: "1px solid black" }}>
-                        <Col
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "10px",
-                          }}
-                        >
-                          {" "}
-                          <Button
-                            style={{
-                              width: "40px",
-                              height: "32px",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                          >
-                            4.2
-                          </Button>
-                          <Text>Very good</Text>
-                          <Text>371 reviews</Text>
-                        </Col>
-                      </Row>
-                    </Col>
-
-                    {/* Price */}
-                    <Col span={6}>
-                      <div style={{ border: "1px solid black" }}>
-                        <Text
-                          style={{
-                            color: "#FF8682",
-                            fontFamily: "Montserrat",
-                            fontSize: "12px",
-                            fontWeight: "500",
-                            fontStyle: "normal",
-                            lineHeight: "15px",
-                          }}
-                        >
-                          starting from
-                        </Text>
-                        <br />
-                        <Text
-                          style={{
-                            color: "#FF8682",
-                            fontFamily: "Montserrat",
-                            fontSize: "14px",
-                            fontWeight: "700",
-                            fontStyle: "normal",
-                            lineHeight: "29px",
-                          }}
-                        >
-                          <Title
-                            level={3}
-                            style={{
-                              margin: "0",
-                              display: "inline",
-                              color: "#FF8682",
-                            }}
-                          >
-                            $240
-                          </Title>
-                          <span>/night</span>
-                        </Text>
-                        <br />
-                        <Text
-                          style={{
-                            display: "block",
-                            color: "#FF8682",
-                            fontFamily: "Montserrat",
-                            fontSize: "12px",
-                            fontWeight: "500",
-                            fontStyle: "normal",
-                            lineHeight: "15px",
-                            textAlign: "right",
-                          }}
-                        >
-                          excl.tax
-                        </Text>
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
-
-                {/* Divider Slash */}
-                <Col>
-                  <Divider style={{ margin: "0" }} />
-                </Col>
-
-                {/* Button  */}
-                <Col
-                  style={{
-                    maxHeight: "48px",
-                    maxWidth: "100%",
-                    display: "flex",
-                  }}
-                  span={12}
-                >
-                  <Button
-                    style={{
-                      padding: "0",
-                      minWidth: "48px",
-                      height: "100%",
-                    }}
-                  >
-                    <HeartFilled style={{ fontSize: "20px" }} />
-                  </Button>
-                  <Button
-                    style={{
-                      width: "100%",
-                      fontWeight: "600",
-                      backgroundColor: "#8DD3BB",
-                      height: "100%",
-                      marginLeft: "16px",
-                    }}
-                  >
-                    View Place
-                  </Button>
-                </Col>
-              </Row>
-            </Col>
-
-            {/* Test lại Component        */}
+            {/* Search Result*/}
             <Col
               span={24}
-              style={{ border: "1px solid black", display: "flex" }}
+              className="search-result-container"
+              style={{ display: "flex" }}
             >
               <Image
                 preview={false}
-                style={{ width: "300px", border: "1px solid black" }}
+                src={hotelIstanbul1}
+                style={{ width: "300px", height: "100%" }}
               >
                 Image
               </Image>
-              <Row
-                style={{
-                  border: "1px solid green",
-                  padding: "24px",
-                  width: "100%",
-                }}
-                gutter={[0, 24]}
-              >
+
+              <Row className="search-result-info-container" gutter={[0, 24]}>
                 {/* Description Info */}
-                <Col span={24} style={{ border: "1px solid black" }}>
+                <Col span={24}>
                   <Row gutter={24}>
                     <Col span={18}>
-                      <div style={{ border: "1px solid black" }}>
-                        Left Content
+                      <div>
+                        <Row gutter={[0, 16]}>
+                          <Col span={24}>
+                            <Title
+                              className="title-font"
+                              style={{
+                                margin: "0",
+                              }}
+                              level={3}
+                            >
+                              CVK Park Bosphorus Hotel Istanbul
+                            </Title>
+                          </Col>
+                          <Col
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "12px",
+                            }}
+                            span={24}
+                          >
+                            <Text
+                              className="items-info-text"
+                              style={{ opacity: "0.75" }}
+                            >
+                              <EnvironmentFilled />
+                              &nbsp; Gümüssuyu Mah. Inönü Cad. No:8, Istanbul
+                              34437
+                            </Text>
+                            <div>
+                              <Rate
+                                style={{ fontSize: "15px" }}
+                                disabled
+                                defaultValue={5}
+                              />
+                              &nbsp;
+                              <Text className="items-info-text">
+                                5 Star Hotel
+                              </Text>
+                              <Text
+                                className="items-info-text"
+                                style={{ marginLeft: "32px" }}
+                              >
+                                20+ Aminities
+                              </Text>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              {" "}
+                              <Button className="small-button-for-text">
+                                <Text className="button-small-text">4.2</Text>
+                              </Button>
+                              <Text
+                                className="items-info-text"
+                                style={{ fontWeight: "700" }}
+                              >
+                                Very Good
+                              </Text>
+                              <Text className="items-info-text">
+                                371 reviews
+                              </Text>
+                            </div>
+                          </Col>
+                        </Row>
                       </div>
                     </Col>
                     <Col span={6}>
-                      <div style={{ border: "1px solid black" }}>
+                      <div>
                         <Text className="pricebox-text">starting from</Text>
                         <br />
-
                         <span className="pricebox-highlight-title">$240</span>
                         <span className="pricebox-highlight-text">/night</span>
-
                         <Text
                           className="pricebox-text"
                           style={{ textAlign: "right", display: "block" }}
@@ -348,23 +247,20 @@ const TestComponent = () => {
                 <Divider style={{ margin: "0" }} />
 
                 {/* Button */}
-                <Col
-                  span={24}
-                  style={{ border: "1px solid black", display: "flex" }}
-                >
+                <Col span={24} style={{ display: "flex", gap: "16px" }}>
                   <Button
-                    style={{
-                      width: "48px",
-                      marginRight: "16px",
-                      height: "48px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
+                    className="button-for-icons"
+                    onClick={handleLikeItems}
                   >
-                    <HeartFilled style={{ fontSize: "20px" }} />
+                    {likedItem ? (
+                      <HeartFilled style={{ fontSize: "20px" }} />
+                    ) : (
+                      <HeartOutlined style={{ fontSize: "20px" }} />
+                    )}
                   </Button>
-                  <Button style={{ width: "100%" }}>Button</Button>
+                  <Button className="large-button-background-filled">
+                    <Text className="button-text">View Place</Text>
+                  </Button>
                 </Col>
               </Row>
             </Col>
