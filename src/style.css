@@ -1,9 +1,5 @@
-.search-result-items {
-  filter: drop-shadow(0px 4px 16px rgba(17, 34, 17, 0.05));
-}
-
 .pricebox-text {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -13,23 +9,26 @@
 }
 
 .pricebox-highlight-text {
- 
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   text-align: right;
-  color: #FF8682;
-  display:"block"
+  color: #ff8682;
+  display: "block";
 }
 
 .pricebox-highlight-title {
-  display:"block";
- 
+  display: "block";
+
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   text-align: right;
-  color: #FF8682;
+  color: #ff8682;
+}
+
+.select-button {
+  padding: 0;
 }
