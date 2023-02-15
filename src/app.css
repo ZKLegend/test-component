@@ -90,3 +90,11 @@ font-family: "TradeGothicExtended";
   font-weight: 500;
 }
 
+.tab-label-style {
+  width: 232px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 45px;
+}

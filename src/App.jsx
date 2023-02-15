@@ -15,12 +15,8 @@ import {
   Space,
   Rate,
   Image,
+  Tabs,
 } from "antd";
-
-// import "./fonts/Montserrat/Montserrat-Bold.ttf";
-// import "./fonts/Montserrat/Montserrat-Medium.ttf";
-// import "./fonts/Montserrat/Montserrat-Regular.ttf";
-// import "./fonts/Montserrat/Montserrat-SemiBold.ttf";
 
 import "./app.css";
 import {
@@ -61,20 +57,77 @@ const LabelItems = ({ name, placeAmounts }) => {
   );
 };
 
+const items = [
+  {
+    key: "hotels",
+    label: (
+      <div className="tab-label-style">
+        <Text>Hotels</Text>
+        <Text>257 places</Text>
+      </div>
+    ),
+    children: `Content of Tab Pane 1`,
+  },
+  {
+    key: "motels",
+    label: (
+      <div className="tab-label-style">
+        <Text>Motels</Text>
+        <Text>51 places</Text>
+      </div>
+    ),
+    children: `Content of Tab Pane 2`,
+  },
+  {
+    key: "resorts",
+    label: (
+      <div className="tab-label-style">
+        <Text>Resorts</Text>
+        <Text>72 places</Text>
+      </div>
+    ),
+    children: `Content of Tab Pane 3`,
+  },
+];
+
 const TestComponent = () => {
   const [likedItem, setLikedItem] = useState(false);
+  const [menuName, setMenuName] = useState();
+
+  const handleSegmentedChange = (value) => {
+    setMenuName(value);
+    console.log(menuName);
+  };
 
   const handleLikeItems = () => {
     setLikedItem(!likedItem);
     console.log(likedItem);
   };
+
+  const handleChange = (key) => {
+    console.log(key);
+  };
+
   return (
     <div>
       <Row>
         <Col span={13}>
           <Row gutter={[0, 32]}>
+            <Col span={24}>
+              <Tabs
+                tabBarStyle={{
+                  background: "white",
+                  boxShadow: " 0px 4px 16px rgba(17, 34, 17, 0.05)",
+                  borderRadius: "12px",
+                }}
+                centered
+                items={items}
+                onChange={handleChange}
+              />
+            </Col>
+
             {/* Category Menu */}
-            <Col
+            {/* <Col
               span={24}
               style={{
                 background: "#FFFFFF",
@@ -83,6 +136,7 @@ const TestComponent = () => {
               }}
             >
               <Segmented
+                onChange={handleSegmentedChange}
                 size="large"
                 style={{ padding: "16px 24px", backgroundColor: "white" }}
                 block
@@ -116,10 +170,10 @@ const TestComponent = () => {
                   },
                 ]}
               />
-            </Col>
+            </Col> */}
 
             {/* Sort Bar */}
-            <Col
+            {/* <Col
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -136,10 +190,10 @@ const TestComponent = () => {
                   defaultValue={dropdownItems[0].label}
                 />
               </div>
-            </Col>
+            </Col> */}
 
             {/* Search Result*/}
-            <Col
+            {/* <Col
               span={24}
               className="search-result-container"
               style={{ display: "flex" }}
@@ -153,7 +207,6 @@ const TestComponent = () => {
               </Image>
 
               <Row className="search-result-info-container" gutter={[0, 24]}>
-                {/* Description Info */}
                 <Col span={24}>
                   <Row gutter={24}>
                     <Col span={18}>
@@ -246,7 +299,6 @@ const TestComponent = () => {
                 </Col>
                 <Divider style={{ margin: "0" }} />
 
-                {/* Button */}
                 <Col span={24} style={{ display: "flex", gap: "16px" }}>
                   <Button
                     className="button-for-icons"
@@ -263,7 +315,7 @@ const TestComponent = () => {
                   </Button>
                 </Col>
               </Row>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
       </Row>
