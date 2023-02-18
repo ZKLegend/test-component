@@ -28,6 +28,17 @@ body {
   font-weight: 600;
 }
 
+.montserrat-medium {
+  font-family: "MontserratMedium";
+  color: #112211;
+}
+
+.montserrat-medium-16px {
+  font-family: "MontserratMedium";
+  font-size: 16px;
+  color: #112211;
+}
+
 .montserrat-semibold {
   font-family: "MontserratSemiBold";
 }
@@ -37,8 +48,18 @@ body {
   font-size: 16px;
 }
 
+.montserrat-semibold-24px {
+  font-family: "MontserratSemiBold";
+  font-size: 24px;
+}
+
 .montserrat-bold {
   font-family: "MontserratBold";
+}
+
+.montserrat-bold-16px {
+  font-family: "MontserratBold";
+  font-size: 16px;
 }
 
 .montserrat-bold-slamon {
