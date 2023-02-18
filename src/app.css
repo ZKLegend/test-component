@@ -14,6 +14,12 @@ body {
 /* General Text Style */
 .montserrat-regular {
   font-family: "MontserratRegular";
+  color: #112211;
+}
+
+.montserrat-regular-slamon {
+  font-family: "MontserratRegular";
+  color: #ff8682;
 }
 
 .montserrat-regular-12px {
@@ -35,6 +41,11 @@ body {
   font-family: "MontserratBold";
 }
 
+.montserrat-bold-slamon {
+  font-family: "MontserratBold";
+  color: #ff8682;
+}
+
 .montserrat-bold-12px {
   font-family: "MontserratBold";
   font-size: 12px;
@@ -45,8 +56,42 @@ body {
   font-size: 24px;
 }
 
+.montserrat-bold-24px-slamon {
+  font-family: "MontserratBold";
+  font-size: 24px;
+  color: #ff8682;
+}
+
 .trade-gothic-bold {
   font-family: "TradeGothicBold";
   font-size: 24px;
   line-height: 25px;
+}
+
+/* Hotel Detail Page Style */
+
+.small-button {
+  width: 40px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8dd3bb;
+}
+
+.button-for-icons {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8dd3bb;
+  border-radius: 4px;
+}
+
+.large-button-background-filled {
+  width: 100%;
+  height: 48px;
+  background-color: #8dd3bb;
+  border-radius: 4px;
 }

@@ -18,10 +18,16 @@ import {
   EnvironmentFilled,
 } from "@ant-design/icons";
 
+import HotelDetail from "./pages/HotelDetail";
+
 const { Text } = Typography;
 
-const SearchResult = () => {
-  return <div>New Component</div>;
+const App = () => {
+  return (
+    <div className="content">
+      <HotelDetail />
+    </div>
+  );
 };
 
-export default SearchResult;
+export default App;
