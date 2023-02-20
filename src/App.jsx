@@ -1,31 +1,13 @@
-import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Button,
-  Typography,
-  Select,
-  Divider,
-  Rate,
-  Image,
-  Tabs,
-} from "antd";
+import React from "react";
 
 import "./app.css";
-import {
-  HeartOutlined,
-  HeartFilled,
-  EnvironmentFilled,
-} from "@ant-design/icons";
 
-import HotelDetail from "./pages/HotelDetail";
-
-const { Text } = Typography;
+import BookingDetail from "./pages/BookingDetail";
 
 const App = () => {
   return (
     <div className="content">
-      <HotelDetail />
+      <BookingDetail />
     </div>
   );
 };

@@ -1,9 +1,4 @@
-.feature-container {
-    display: flex;
-    flex-direction: column;
-    width: 166px;
-    height: 145px;
-    border: 1px solid #8DD3BB;
-    border-radius: 12px;
-    padding: 16px;
+.booking-detail {
+  padding: 0 80px;
+  background-color: #fafafa;
 }

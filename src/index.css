@@ -33,3 +33,17 @@
   src: local("TradeGothichBold"),
     url("./fonts//TradeGothic/Trade-Gothic-Bold.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "TradeGothicLTExtended";
+  src: local("TradeGothicLTExtended"),
+    url("./fonts/TradeGothic/Trade-Gothic-LT-Std-Extended.otf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "TradeGothicLTExtendedBold";
+  src: local("TradeGothicLTExtendedBold"),
+    url("./fonts/TradeGothic/Trade-Gothic-LT-Std-Bold-Extended.otf")
+      format("truetype");
+}
