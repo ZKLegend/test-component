@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { Row, Col, Typography, Divider, Breadcrumb, Input, Button } from "antd";
-import { EnvironmentFilled, LineOutlined, MailFilled } from "@ant-design/icons";
+import {
+  EnvironmentFilled,
+  LineOutlined,
+  MailFilled,
+  PlusCircleOutlined,
+  CloseOutlined,
+} from "@ant-design/icons";
 
 import hotelIstanbul6 from "../../assets/images/hotel-istanbul-6.png";
 import hotelLogo from "../../assets/images/hotel-logo.png";
+import visaImage from "../../assets/images/Visa.png";
 
 import "./index.css";
 
 const { Title, Text, Paragraph } = Typography;
 
 const BookingDetail = () => {
+  const [radioSelected, setRadioSelected] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const cancelBox = () => {
+    console.log("Test");
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const handleLogOut = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const changeInputStyle = (event) => {
+    console.log(event.target.value);
+    setRadioSelected(event.target.id);
+  };
+  console.log(radioSelected);
   return (
     <div className="booking-detail">
       <Breadcrumb separator=">">
@@ -29,7 +56,7 @@ const BookingDetail = () => {
         {/* Left Content */}
         <Col>
           <div className="flex-column" style={{ width: "790px", gap: "40px" }}>
-            {/* Content Box 1 */}
+            {/* Booking Information */}
             <div
               className="flex-column content-border-box"
               style={{
@@ -120,121 +147,83 @@ const BookingDetail = () => {
               </div>
             </div>
 
-            {/* Content Box 2 */}
+            {/* Pay Option */}
             <div
               className="flex-column content-border-box"
               style={{
                 gap: "16px",
               }}
-            ></div>
-
-            {/* Content Box 3 */}
-            <div
-              className="flex-column content-border-box"
-              style={{
-                gap: "24px",
-              }}
             >
-              <div className="flex-column" style={{ gap: "16px" }}>
-                <Text className="trade-gothic-lt-extended-bold-20px">
-                  Login or Sign up to book
-                </Text>
-                <Input size="large" placeholder="Phone Number" />
-                <Text className="montserrat-regular">
-                  We’ll call or text you to confirm your number. Standard
-                  message and data rates apply.{" "}
-                  <Link to="">Privacy Policy</Link>
-                </Text>
-                <Button
-                  className="big-button-background-filled"
-                  style={{ with: "100%" }}
-                >
-                  <Text className="montserrat-medium-16px">Continue</Text>
-                </Button>
-              </div>
-              <Divider
-                className="montserrat-medium-16px"
-                style={{ margin: "0" }}
+              <div
+                className={
+                  radioSelected !== "payfull"
+                    ? "flex-space-between-align-center"
+                    : "content-green-background-box flex-space-between-align-center"
+                }
+                style={{ gap: "64px", padding: "16px" }}
               >
-                Or
-              </Divider>
-              <div className="flex-column" style={{ gap: "16px" }}>
-                <div className="flex-space-between" style={{ gap: "16px" }}>
-                  <Button
-                    className="big-button-for-icons"
-                    style={{ width: "calc(100%/3)" }}
-                  >
-                    <svg
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M24.334 12.0733C24.334 5.40546 18.9614 0 12.334 0C5.70661 0 0.333984 5.40536 0.333984 12.0733C0.333984 18.0994 4.72223 23.0943 10.459 24V15.5633H7.41211V12.0733H10.459V9.41343C10.459 6.38755 12.2505 4.71615 14.9915 4.71615C16.3045 4.71615 17.6777 4.95195 17.6777 4.95195V7.92313H16.1646C14.6738 7.92313 14.209 8.85381 14.209 9.80864V12.0733H17.5371L17.0051 15.5633H14.209V24C19.9457 23.0943 24.334 18.0995 24.334 12.0733Z"
-                        fill="#1877F2"
-                      />
-                    </svg>
-                  </Button>
-                  <Button
-                    className="big-button-for-icons"
-                    style={{ width: "calc(100%/3)" }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
-                        fill="#FFC107"
-                      />
-                      <path
-                        d="M3.15234 7.3455L6.43784 9.755C7.32684 7.554 9.47984 6 11.9993 6C13.5288 6 14.9203 6.577 15.9798 7.5195L18.8083 4.691C17.0223 3.0265 14.6333 2 11.9993 2C8.15834 2 4.82734 4.1685 3.15234 7.3455Z"
-                        fill="#FF3D00"
-                      />
-                      <path
-                        d="M12.0002 22C14.5832 22 16.9302 21.0115 18.7047 19.404L15.6097 16.785C14.5719 17.5742 13.3039 18.001 12.0002 18C9.39916 18 7.19066 16.3415 6.35866 14.027L3.09766 16.5395C4.75266 19.778 8.11366 22 12.0002 22Z"
-                        fill="#4CAF50"
-                      />
-                      <path
-                        d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
-                        fill="#1976D2"
-                      />
-                    </svg>
-                  </Button>
-                  <Button
-                    className="big-button-for-icons"
-                    style={{ width: "calc(100%/3)" }}
-                  >
-                    <svg
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18.1852 12.5555C18.1758 10.957 18.9 9.75234 20.3625 8.86406C19.5445 7.69219 18.307 7.04766 16.6758 6.92344C15.1313 6.80156 13.4414 7.82344 12.8227 7.82344C12.1687 7.82344 10.6734 6.96563 9.49688 6.96563C7.06875 7.00313 4.48828 8.90156 4.48828 12.7641C4.48828 13.9055 4.69687 15.0844 5.11406 16.2984C5.67187 17.8969 7.68281 21.8133 9.78047 21.75C10.8773 21.7242 11.6531 20.9719 13.0805 20.9719C14.4656 20.9719 15.1828 21.75 16.4062 21.75C18.5227 21.7195 20.3414 18.1594 20.8711 16.5563C18.0328 15.218 18.1852 12.6375 18.1852 12.5555ZM15.7219 5.40703C16.9102 3.99609 16.8023 2.71172 16.7672 2.25C15.7172 2.31094 14.5031 2.96484 13.8117 3.76875C13.05 4.63125 12.6023 5.69766 12.6984 6.9C13.8328 6.98672 14.8687 6.40313 15.7219 5.40703Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </Button>
-                </div>
-                <Button
-                  className="big-button-green-border flex-align-center"
-                  style={{ justifyContent: "center" }}
+                <label
+                  className="flex-column"
+                  style={{ gap: "8px" }}
+                  htmlFor="payfull"
                 >
-                  <MailFilled style={{ fontSize: "24px" }} />
-                  <Text className="montserrat-medium-16px">
-                    Continue with email
-                  </Text>
-                </Button>
+                  <span className="trade-gothic-lt-extended-bold-16px">
+                    Pay in full
+                  </span>
+                  <span className="montserrat-regular">
+                    Pay the total and you are all set
+                  </span>
+                </label>
+
+                <input
+                  onChange={changeInputStyle}
+                  type="radio"
+                  id="payfull"
+                  value={true}
+                  name="radioSelected"
+                  style={{ width: "24px", height: "24px" }}
+                />
+              </div>
+
+              <div
+                className={
+                  radioSelected !== "payhalf"
+                    ? "flex-space-between-align-center"
+                    : "content-green-background-box flex-space-between-align-center"
+                }
+                style={{ gap: "64px", padding: "16px" }}
+              >
+                <label
+                  className="flex-column"
+                  style={{ gap: "8px" }}
+                  htmlFor="payhalf"
+                >
+                  <span className="trade-gothic-lt-extended-bold-16px">
+                    Pay in half
+                  </span>
+                  <span className="montserrat-regular">
+                    Pay $207.43 now, and the rest ($207.43) will be
+                    automatically charged to the same payment method on Nov 14,
+                    2022. No extra fees.
+                  </span>
+                </label>
+
+                <input
+                  onChange={changeInputStyle}
+                  type="radio"
+                  id="payhalf"
+                  value={false}
+                  name="radioSelected"
+                  style={{ minHeight: "24px", minWidth: "24px" }}
+                />
               </div>
             </div>
+
+            {!isLoggedIn ? (
+              <LoginContentBox handleLogin={handleLogin} />
+            ) : (
+              <VisaCardContentBox handleLogOut={handleLogOut} />
+            )}
           </div>
         </Col>
 
@@ -244,6 +233,7 @@ const BookingDetail = () => {
             className="content-border-box flex-column"
             style={{ width: "450px", gap: "16px" }}
           >
+            {/* Hotel Name, Image, Room Name */}
             <div style={{ display: "flex", gap: "16px" }}>
               <img
                 style={{
@@ -289,6 +279,7 @@ const BookingDetail = () => {
 
             <Divider style={{ margin: "0" }} />
 
+            {/* Booking Price */}
             <div className="flex-column" style={{ gap: "16px" }}>
               <Text className="trade-gothic-lt-extended-bold-16px">
                 Price Details
@@ -312,6 +303,8 @@ const BookingDetail = () => {
             </div>
 
             <Divider style={{ margin: "0" }} />
+
+            {/* Total Price */}
             <div className="flex-space-between">
               <Text className="montserrat-medium-16px">Total</Text>
               <Text className="montserrat-semibold-16px">$265</Text>
@@ -319,8 +312,297 @@ const BookingDetail = () => {
           </div>
         </Col>
       </Row>
+      <div
+        style={{
+          background: "#FFFFFF",
+          border: "1px solid black",
+          width: "640px",
+          margin: "auto",
+          padding: "64px",
+        }}
+      >
+        <CloseOutlined
+          onClick={cancelBox}
+          style={{ textAlign: "right", display: "block" }}
+        />
+        <div className="flex-column" style={{ gap: "48px" }}>
+          <Text className="trade-gothic-lt-extended-bold-40px">
+            Add a new card
+          </Text>
+          <form className="flex-column" style={{ gap: "24px" }}>
+            <div style={{ position: "relative" }}>
+              <label
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "-10px",
+                  background: "#FFFFFF",
+                  padding: "0 5px",
+                }}
+              >
+                Card Number
+              </label>
+              <input
+                className="input-border"
+                type="text"
+                placeholder="Card Number"
+              />
+            </div>
+
+            <div style={{ display: "flex", gap: "24px" }}>
+              <div style={{ position: "relative" }}>
+                <label
+                  style={{
+                    position: "absolute",
+                    left: "10px",
+                    top: "-10px",
+                    background: "#FFFFFF",
+                    padding: "0 5px",
+                  }}
+                >
+                  Exp.Date
+                </label>{" "}
+                <input
+                  className="input-border"
+                  style={{ width: "50%" }}
+                  type="text"
+                  placeholder="Exp.Date"
+                />
+              </div>
+              <div style={{ position: "relative" }}>
+                <label
+                  style={{
+                    position: "absolute",
+                    left: "10px",
+                    top: "-10px",
+                    background: "#FFFFFF",
+                    padding: "0 5px",
+                  }}
+                >
+                  CVC
+                </label>{" "}
+                <input
+                  className="input-border"
+                  style={{ width: "50%" }}
+                  type="text"
+                  placeholder="CVC"
+                />
+              </div>
+            </div>
+            <div style={{ position: "relative" }}>
+              <label
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "-10px",
+                  background: "#FFFFFF",
+                  padding: "0 5px",
+                }}
+              >
+                Name on Card
+              </label>{" "}
+              <input
+                className="input-border"
+                type="text"
+                placeholder="Name on Card"
+              />
+            </div>
+            <div style={{ position: "relative" }}>
+              <label
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "-10px",
+                  background: "#FFFFFF",
+                  padding: "0 5px",
+                }}
+              >
+                Country or Region
+              </label>{" "}
+              <input
+                className="input-border"
+                type="select"
+                placeholder="Country or Region"
+              />
+            </div>
+
+            <div className="flex-align-center">
+              {" "}
+              <input type="checkbox" />
+              <Text className="montserrat-medium">
+                Securely save my information for 1-click checkout
+              </Text>
+            </div>
+          </form>
+          <Button
+            className="big-button-background-filled"
+            style={{ width: "100%" }}
+          >
+            <Text className="montserrat-semibold">Add Card</Text>
+          </Button>
+          <Paragraph
+            className="montserrat-regular-12px"
+            style={{ opacity: "0.75", textAlign: "center" }}
+          >
+            By confirming your subscription, you allow The Outdoor Inn Crowd
+            Limited to charge your card for this payment and future payments in
+            accordance with their terms. You can always cancel your
+            subscription.
+          </Paragraph>
+        </div>
+      </div>
     </div>
   );
 };
+
+function LoginContentBox({ handleLogin }) {
+  return (
+    <>
+      <div
+        className="flex-column content-border-box"
+        style={{
+          gap: "24px",
+        }}
+      >
+        <div className="flex-column" style={{ gap: "16px" }}>
+          <Text className="trade-gothic-lt-extended-bold-20px">
+            Login or Sign up to book
+          </Text>
+          <Input size="large" placeholder="Phone Number" />
+          <Text className="montserrat-regular">
+            We’ll call or text you to confirm your number. Standard message and
+            data rates apply. <Link to="">Privacy Policy</Link>
+          </Text>
+          <Button
+            onClick={handleLogin}
+            className="big-button-background-filled"
+            style={{ with: "100%" }}
+          >
+            <Text className="montserrat-medium-16px">Continue</Text>
+          </Button>
+        </div>
+        <Divider className="montserrat-medium-16px" style={{ margin: "0" }}>
+          Or
+        </Divider>
+        <div className="flex-column" style={{ gap: "16px" }}>
+          <div className="flex-space-between" style={{ gap: "16px" }}>
+            <Button
+              className="big-button-for-icons"
+              style={{ width: "calc(100%/3)" }}
+            >
+              <svg
+                width="25"
+                height="24"
+                viewBox="0 0 25 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.334 12.0733C24.334 5.40546 18.9614 0 12.334 0C5.70661 0 0.333984 5.40536 0.333984 12.0733C0.333984 18.0994 4.72223 23.0943 10.459 24V15.5633H7.41211V12.0733H10.459V9.41343C10.459 6.38755 12.2505 4.71615 14.9915 4.71615C16.3045 4.71615 17.6777 4.95195 17.6777 4.95195V7.92313H16.1646C14.6738 7.92313 14.209 8.85381 14.209 9.80864V12.0733H17.5371L17.0051 15.5633H14.209V24C19.9457 23.0943 24.334 18.0995 24.334 12.0733Z"
+                  fill="#1877F2"
+                />
+              </svg>
+            </Button>
+            <Button
+              className="big-button-for-icons"
+              style={{ width: "calc(100%/3)" }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                  fill="#FFC107"
+                />
+                <path
+                  d="M3.15234 7.3455L6.43784 9.755C7.32684 7.554 9.47984 6 11.9993 6C13.5288 6 14.9203 6.577 15.9798 7.5195L18.8083 4.691C17.0223 3.0265 14.6333 2 11.9993 2C8.15834 2 4.82734 4.1685 3.15234 7.3455Z"
+                  fill="#FF3D00"
+                />
+                <path
+                  d="M12.0002 22C14.5832 22 16.9302 21.0115 18.7047 19.404L15.6097 16.785C14.5719 17.5742 13.3039 18.001 12.0002 18C9.39916 18 7.19066 16.3415 6.35866 14.027L3.09766 16.5395C4.75266 19.778 8.11366 22 12.0002 22Z"
+                  fill="#4CAF50"
+                />
+                <path
+                  d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                  fill="#1976D2"
+                />
+              </svg>
+            </Button>
+            <Button
+              className="big-button-for-icons"
+              style={{ width: "calc(100%/3)" }}
+            >
+              <svg
+                width="25"
+                height="24"
+                viewBox="0 0 25 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.1852 12.5555C18.1758 10.957 18.9 9.75234 20.3625 8.86406C19.5445 7.69219 18.307 7.04766 16.6758 6.92344C15.1313 6.80156 13.4414 7.82344 12.8227 7.82344C12.1687 7.82344 10.6734 6.96563 9.49688 6.96563C7.06875 7.00313 4.48828 8.90156 4.48828 12.7641C4.48828 13.9055 4.69687 15.0844 5.11406 16.2984C5.67187 17.8969 7.68281 21.8133 9.78047 21.75C10.8773 21.7242 11.6531 20.9719 13.0805 20.9719C14.4656 20.9719 15.1828 21.75 16.4062 21.75C18.5227 21.7195 20.3414 18.1594 20.8711 16.5563C18.0328 15.218 18.1852 12.6375 18.1852 12.5555ZM15.7219 5.40703C16.9102 3.99609 16.8023 2.71172 16.7672 2.25C15.7172 2.31094 14.5031 2.96484 13.8117 3.76875C13.05 4.63125 12.6023 5.69766 12.6984 6.9C13.8328 6.98672 14.8687 6.40313 15.7219 5.40703Z"
+                  fill="black"
+                />
+              </svg>
+            </Button>
+          </div>
+          <Button
+            className="big-button-green-border flex-align-center"
+            style={{ justifyContent: "center" }}
+          >
+            <MailFilled style={{ fontSize: "24px" }} />
+            <Text className="montserrat-medium-16px">Continue with email</Text>
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function VisaCardContentBox({ handleLogOut }) {
+  return (
+    <>
+      <div
+        className="flex-column content-border-box"
+        style={{
+          gap: "16px",
+        }}
+      >
+        <div className="content-green-background-box flex-space-between-align-center">
+          <label
+            className="flex-align-center"
+            htmlFor="visa-1"
+            style={{ gap: "32px" }}
+          >
+            <img alt="visa" src={visaImage} />
+            <div>
+              <Text className="trade-gothic-lt-extended-bold-16px">
+                **** 4321
+              </Text>
+              &nbsp;
+              <Text className="montserrat-regular">02/27</Text>
+            </div>
+          </label>
+          <input
+            type="radio"
+            name="visaSelect"
+            value="visaNumber"
+            id="visa-1"
+            style={{ minHeight: "24px", minWidth: "24px" }}
+          />
+        </div>
+        <div className="add-card-border">
+          <PlusCircleOutlined style={{ fontSize: "48px", color: "#8DD3BB" }} />
+          <Text className="montserrat-medium-12px">Add new Card</Text>
+          <Button onClick={handleLogOut}>Log Out</Button>
+        </div>
+      </div>
+    </>
+  );
+}
 
 export default BookingDetail;

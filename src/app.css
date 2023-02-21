@@ -21,7 +21,14 @@ body {
   padding: 16px 32px;
 }
 
+.content-green-background-box {
+  background: #8DD3BB;
+border-radius: 12px;
+  padding: 16px;
+}
+
 /* General Text Style */
+/* Default font size: 14px */
 .montserrat-regular {
   font-family: "MontserratRegular";
   color: #112211;
@@ -46,6 +53,12 @@ body {
 
 .montserrat-medium {
   font-family: "MontserratMedium";
+  color: #112211;
+}
+
+.montserrat-medium-12px {
+  font-family: "MontserratMedium";
+  font-size: 12px;
   color: #112211;
 }
 
@@ -155,6 +168,13 @@ body {
   font-family: "TradeGothicLTExtendedBold";
   font-size: 24px;
   line-height: 30px;
+  color: #112211;
+}
+
+.trade-gothic-lt-extended-bold-40px {
+  font-family: "TradeGothicLTExtendedBold";
+  font-size: 40px;
+  line-height: 50px;
   color: #112211;
 }
 
