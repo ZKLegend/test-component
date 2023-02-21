@@ -14,6 +14,15 @@ body {
   padding: 32px 24px;
 }
 
+.logo-border-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+}
+
 .content-green-border-box {
   background: #ffffff;
   border: 1px solid #8dd3bb;
@@ -22,8 +31,8 @@ body {
 }
 
 .content-green-background-box {
-  background: #8DD3BB;
-border-radius: 12px;
+  background: #8dd3bb;
+  border-radius: 12px;
   padding: 16px;
 }
 
@@ -59,17 +68,33 @@ border-radius: 12px;
 .montserrat-medium-12px {
   font-family: "MontserratMedium";
   font-size: 12px;
+  line-height: 15px;
   color: #112211;
 }
 
 .montserrat-medium-16px {
   font-family: "MontserratMedium";
   font-size: 16px;
+  line-height: 20px;
   color: #112211;
+}
+
+.montserrat-medium-20px {
+  font-family: "MontserratMedium";
+  font-size: 20px;
+  color: #112211;
+  line-height: 24px;
 }
 
 .montserrat-semibold {
   font-family: "MontserratSemiBold";
+  color: #112211;
+}
+
+.montserrat-semibold-12px {
+  font-family: "MontserratSemiBold";
+  font-size: 12px;
+  line-height: 15px;
   color: #112211;
 }
 
@@ -89,6 +114,13 @@ border-radius: 12px;
   font-family: "MontserratSemiBold";
   font-size: 20px;
   color: #112211;
+}
+
+.montserrat-semibold-32px {
+  font-family: "MontserratSemiBold";
+  font-size: 32px;
+  color: #112211;
+  line-height: 40px;
 }
 
 .montserrat-semibold-24px {
@@ -147,6 +179,7 @@ border-radius: 12px;
 
 .trade-gothic-lt-extended-bold {
   font-family: "TradeGothicLTExtendedBold";
+  line-height: 18px;
   color: #112211;
 }
 
@@ -224,6 +257,16 @@ border-radius: 12px;
   border: 1px solid #8dd3bb;
 }
 
+.small-button-for-icons {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ebf6f2;
+  border-radius: 4px;
+}
+
 .button-for-icons {
   width: 48px;
   height: 48px;
@@ -231,6 +274,12 @@ border-radius: 12px;
   justify-content: center;
   align-items: center;
   border: 1px solid #8dd3bb;
+  border-radius: 4px;
+}
+
+.button-background-filled {
+  height: 48px;
+  background-color: #8dd3bb;
   border-radius: 4px;
 }
 
@@ -243,14 +292,14 @@ border-radius: 12px;
   border-radius: 4px;
 }
 
-.big-button-background-filled {
-  height: 48px;
-  background-color: #8dd3bb;
-  border-radius: 4px;
-}
-
 .big-button-green-border {
   height: 56px;
   border: 1px solid #8dd3bb;
+  border-radius: 4px;
+}
+
+.big-button-background-filled {
+  height: 56px;
+  background-color: #8dd3bb;
   border-radius: 4px;
 }
