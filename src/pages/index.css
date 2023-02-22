@@ -69,6 +69,11 @@ li:not(:last-child) {
   padding: 0;
 }
 
+ul > li {
+  font-family: "MontserratRegular";
+  color: #112211;
+}
+
 .ticket-border {
   background: #ffffff;
   border: 1px solid #eaeaea;

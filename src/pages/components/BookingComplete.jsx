@@ -3,7 +3,6 @@ import { Breadcrumb, Row, Col, Button, Typography, Avatar } from "antd";
 import {
   ShareAltOutlined,
   EnvironmentFilled,
-  ClockCircleTwoTone,
   ClockCircleFilled,
 } from "@ant-design/icons";
 import {
@@ -73,7 +72,9 @@ const BookingComplete = () => {
         </Col>
 
         <Col span={24} className="flex-column" style={{ gap: "64px" }}>
+          {/* Ticket Part */}
           <div style={{ display: "flex" }}>
+            {/* Ticket Information */}
             <div style={{ display: "flex" }}>
               {/* Check-In Check-Out */}
               <div
@@ -119,7 +120,6 @@ const BookingComplete = () => {
                   position: "relative",
                   borderRadius: "0 16px 16px 0",
                   border: "1px solid #EAEAEA",
-                  background: "white",
                 }}
               >
                 {/* Avatar - Name - Room Name */}
@@ -238,10 +238,11 @@ const BookingComplete = () => {
             </div>
 
             <div className="logo-border-box" style={{ width: "375px" }}>
-              <img alt="hoel-logo" src={hotelLogoBigSize} />
+              <img alt="hotel-logo" src={hotelLogoBigSize} />
             </div>
           </div>
 
+          {/* Term and Condition */}
           <div className="flex-column" style={{ gap: "32px" }}>
             <Text className="montserrat-semibold-24px">
               Terms and Conditions
@@ -249,13 +250,13 @@ const BookingComplete = () => {
             <div>
               <Text className="montserrat-medium-20px">Payments</Text>
               <ul>
-                <li className="montserrat-regular">
+                <li>
                   If you are purchasing your ticket using a debit or credit card
                   via the Website, we will process these payments via the
                   automated secure common payment gateway which will be subject
                   to fraud screening purposes.{" "}
                 </li>
-                <li className="montserrat-regular">
+                <li>
                   If you do not supply the correct card billing address and/or
                   cardholder information, your booking will not be confirmed and
                   the overall cost may increase. We reserve the right to cancel
@@ -267,7 +268,7 @@ const BookingComplete = () => {
                   arising from such cancellation, without prejudice to any
                   action that may be taken against us.
                 </li>
-                <li className="montserrat-regular">
+                <li>
                   Golobe may require the card holder to provide additional
                   payment verification upon request by either submitting an
                   online form or visiting the nearest Golobe office, or at the
